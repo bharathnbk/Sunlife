@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Datatable Example" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <lightning-input type="search" label="Search Account" onchange={updateSearch}></lightning-input><br/><br/>
+            <template if:true={account.data}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={lstAccounts}
+                    columns={columns}
+                    sorted-by={sortBy}
+                    sorted-direction={sortDirection}
+                     onsort={doSorting}
+                    onsave={handleSave}
+                    draft-values={draftValues}>
+                </lightning-datatable>
+            </template>
+            <template if:true={account.error}>
+                <!-- handle Apex error -->
+            </template>
+        </div>
+    </lightning-card>
+</template>
